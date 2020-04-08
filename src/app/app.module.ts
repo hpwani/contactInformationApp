@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './_helpers';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeDatabaseService } from './_services';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './_helper
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(FakeDatabaseService)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

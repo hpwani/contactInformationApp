@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { contactBookInfo } from '../_models';
+import { ContactBookInfoService } from '../_services';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   addContactForm: FormGroup;
-
+  contactBookData: contactBookInfo[];
+  ContactBookTbl: any;
 
   constructor(
     private formBuilder: FormBuilder,
+    private contactBookInfoService: ContactBookInfoService,
   ) { }
 
   ngOnInit(): void {
+    this.createForm();
+    this.getContactBookData();
   }
 
   createForm() {
@@ -25,6 +31,12 @@ export class HomeComponent implements OnInit {
       emailId: ['', Validators.required],
       address: ['', Validators.required],
     })
+  }
+
+  getContactBookData() {
+    this.contactBookInfoService.getContactBookData().subscribe(data => {
+      this.ContactBookTbl = data;
+    });
   }
 
   addContactInfo() {
