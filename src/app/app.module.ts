@@ -11,12 +11,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './_helpers';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeDatabaseService } from './_services';
+import { UpdateModelComponent } from './update-model/update-model.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateModelComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { FakeDatabaseService } from './_services';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule,
     InMemoryWebApiModule.forRoot(FakeDatabaseService)
   ],
   providers: [
