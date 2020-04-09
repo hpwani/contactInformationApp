@@ -10,18 +10,59 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+## Run Application On localhost
+
+Run `ng serve` to run the project on locale server.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Project Folder Structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    src
+        app
+            _helper
+                auth.guard.ts
+                error.interceptor.ts
+                fake-backend.ts
+                jwt.interceptor.ts
+                index.ts
+            _Models
+                contactBookInfo.ts
+                user.ts
+                index.ts
+            _services
+                authentication.service.ts
+                user.service.ts
+                fake-database.service.ts
+                contact-book-info.service.ts
+                index.ts
+            confirmation-model
+                confirmation-model.component.html
+                confirmation-model.component.ts
+                confirmation-model.component.css    
+            home
+                home.component.html
+                home.component.ts
+                home.component.css
+                index.ts
+            login
+                login.component.html
+                login.component.ts
+                login.component.css
+                index.ts
+            app-routing.module.ts
+            app.component.html
+            app.component.ts
+            app.component.css
+            app.module.ts
+            environments
+                environment.prod.ts
+                environment.ts
+            index.html
+            main.ts
+            polyfills.ts
+            styles.css
+        package.json
+        tsconfig.json
