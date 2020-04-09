@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { contactBookInfo } from '../_models';
 import { ContactBookInfoService } from '../_services';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-model',
@@ -14,10 +15,12 @@ export class UpdateModelComponent implements OnInit {
   contactBookData: contactBookInfo[];
   ContactBookTbl: any;
   contactId: any;
+  statusToggle: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private contactBookInfoService: ContactBookInfoService,
+    private toastr: ToastrService,
     public dialogRef: MatDialogRef<UpdateModelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
@@ -30,11 +33,24 @@ export class UpdateModelComponent implements OnInit {
 
   createForm() {
     this.updateContactForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      contactNumber: ['', Validators.required],
-      emailId: ['', Validators.required],
-      address: ['', Validators.required],
+      firstName: ['', {
+        validators: [Validators.required]
+      }],
+      lastName: ['', {
+        validators: [Validators.required]
+      }],
+      contactNumber: ['', {
+        validators: [Validators.required]
+      }],
+      emailId: ['', {
+        validators: [Validators.required]
+      }],
+      address: ['', {
+        validators: [Validators.required]
+      }],
+      status: [false, {
+        validators: []
+      }],
     })
   }
 
@@ -45,15 +61,16 @@ export class UpdateModelComponent implements OnInit {
       this.updateContactForm.controls.contactNumber.setValue(data['contactNumber']);
       this.updateContactForm.controls.emailId.setValue(data['emailId']);
       this.updateContactForm.controls.address.setValue(data['address']);
+      this.updateContactForm.controls.status.setValue(data['address']);
     });
   }
 
   updateContactInfo(updateFormData: contactBookInfo) {
-    console.log(updateFormData)
     this.contactBookInfoService.updateContactBookData(this.contactId,updateFormData).subscribe(data => {
       console.log(data);
       this.dialogRef.close();
       this.updateContactForm.reset();
+      this.toastr.success('Contact Updated Successfully!', 'Success');
     });
   }
 

@@ -13,13 +13,19 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeDatabaseService } from './_services';
 import { UpdateModelComponent } from './update-model/update-model.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ConfirmationModelComponent } from './confirmation-model/confirmation-model.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BnNgIdleService } from 'bn-ng-idle';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    UpdateModelComponent
+    UpdateModelComponent,
+    ConfirmationModelComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    ToastrModule.forRoot(),
     InMemoryWebApiModule.forRoot(FakeDatabaseService)
   ],
   providers: [
@@ -35,7 +44,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
+    // session time out
+    BnNgIdleService
 ],
   bootstrap: [AppComponent]
 })
