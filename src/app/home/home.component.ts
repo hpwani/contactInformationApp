@@ -40,10 +40,10 @@ export class HomeComponent implements OnInit {
         validators: [Validators.required]
       }],
       contactNumber: ['', {
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/), Validators.maxLength(10)]
       }],
       emailId: ['', {
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]
       }],
       address: ['', {
         validators: [Validators.required]

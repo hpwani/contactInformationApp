@@ -41,6 +41,14 @@
                                         *ngIf="addContactForm['controls'].contactNumber.errors.required">
                                         <small>This Field Is Required</small>
                                     </div>
+                                    <div class="errormsg"
+                                        *ngIf="addContactForm['controls'].contactNumber.errors.pattern">
+                                        <small>Only numbers are allowed</small>
+                                    </div>
+                                    <div class="errormsg"
+                                        *ngIf="addContactForm['controls'].contactNumber.errors.maxlength">
+                                        <small>Maximum 10 numbers are allowed</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -50,6 +58,10 @@
                                     *ngIf="addContactForm['controls'].emailId.invalid && (addContactForm['controls'].emailId.dirty || addContactForm['controls'].emailId.touched)">
                                     <div class="errormsg" *ngIf="addContactForm['controls'].emailId.errors.required">
                                         <small>This Field Is Required</small>
+                                    </div>
+                                    <div class="errormsg"
+                                        *ngIf="addContactForm['controls'].emailId.errors.pattern">
+                                        <small>Please enter valid email id</small>
                                     </div>
                                 </div>
                             </div>
