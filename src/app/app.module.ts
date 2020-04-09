@@ -39,6 +39,10 @@ import { MatIconModule } from '@angular/material/icon';
     ToastrModule.forRoot(),
     InMemoryWebApiModule.forRoot(FakeDatabaseService)
   ],
+  entryComponents: [
+    UpdateModelComponent,
+    ConfirmationModelComponent
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
