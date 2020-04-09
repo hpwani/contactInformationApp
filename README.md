@@ -76,8 +76,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
         "npm install -g @angular/cli"
 
     3) Open Project in Visual Studio Code and run the following command one by one
-        i) "npm install bootstrap" //intall Bootstrap
-       ii) "ng serve" //Run Application
+        i) "npm install bootstrap"          //intall Bootstrap
+       ii) "ng add @angular/material"       //install Angular Material
+      iii) "ng serve"                       //Run Application
     
     4) Open Browser and put following URL in search bar.
         "http://localhost:4200/login"
