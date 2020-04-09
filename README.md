@@ -66,3 +66,18 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
             styles.css
         package.json
         tsconfig.json
+
+## Application Setup and Run
+
+    1) Download or clone project from github on your system
+        "https://github.com/hpwani/contactInformationApp.git"
+    
+    2) Go to the folder structure where you can download this project and open this path on command line and run the following command.
+        "npm install -g @angular/cli"
+
+    3) Open Project in Visual Studio Code and run the following command one by one
+        i) "npm install bootstrap" //intall Bootstrap
+       ii) "ng serve" //Run Application
+    
+    4) Open Browser and put following URL in search bar.
+        "http://localhost:4200/login"
